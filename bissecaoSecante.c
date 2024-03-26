@@ -30,15 +30,24 @@ int main(void){
     passos = 0;
     double resultado = bissecao (1, 3, 1e-10);
     printf("Bissecao == %.20lf ===== %d passos\n", resultado, passos);
+
+    passos = 0;
     double resultado2 = bissecao2 (0, 1, 1e-10);
     printf("Bissecao == %.20lf ===== %d passos\n", resultado2, passos);
+
+    passos = 0;
     double resultado3 = bissecao3 (23, 26, 1e-10);
     printf("Bissecao == %.20lf ===== %d passos\n", resultado3, passos);
 
+    passos = 0;
     double resultado4 = secante (1, 3, 1e-10);
     printf("Secante == %.20lf ===== %d passos\n", resultado4, passos);
+
+    passos = 0;
     double resultado5 = secante2 (0, 1, 1e-10);
     printf("Secante == %.20lf ===== %d passos\n", resultado5, passos);
+
+    passos = 0;
     double resultado6 = secante3 (23, 26, 1e-10);
     printf("Secante == %.20lf ===== %d passos\n", resultado6, passos);
 
@@ -112,6 +121,7 @@ double secante(double a, double b, double epsilon){
         x2 = x1 - funcaoA(x1) * (x1 - x0) / (funcaoA(x1) - funcaoA(x0));
         x0 = x1;
         x1 = x2;
+        passos++;
     }
   return x1;
 }
@@ -121,6 +131,7 @@ double secante2(double a, double b, double epsilon){
         x2 = x1 - funcaoB(x1) * (x1 - x0) / (funcaoB(x1) - funcaoB(x0));
         x0 = x1;
         x1 = x2;
+        passos++;
     }
   return x1;
 }
@@ -130,6 +141,7 @@ double secante3(double a, double b, double epsilon){
         x2 = x1 - funcaoC(x1) * (x1 - x0) / (funcaoC(x1) - funcaoC(x0));
         x0 = x1;
         x1 = x2;
+        passos++;
     }
   return x1;
 }
