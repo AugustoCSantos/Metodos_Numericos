@@ -55,13 +55,16 @@ int main(void){
 }
 
 double bissecao(double a, double b, double epsilon){
-    double x0 = a, x1 = b;
+    double x1;
 
-    do{
-        x0 = x1;
+    while(fabs(b - a) > epsilon){
+        x1 = a;
         x1 = (a + b)/2;
 
-        if(funcaoA(x1) * funcaoA(a) < 0){
+        if(funcaoA(x1) == 0.0){
+            break;
+        }
+        else if((funcaoA(x1) * funcaoA(a)) < 0){
             b = x1;
             passos++;
         }
@@ -69,10 +72,8 @@ double bissecao(double a, double b, double epsilon){
             a = x1;
             passos++;
         }
-
-    } while(fabs(x1 - x0) > epsilon);
-
-    return x0;
+    }
+    return x1;
 }
 double bissecao2(double a, double b, double epsilon){
     double x0 = a, x1 = b;
@@ -81,7 +82,10 @@ double bissecao2(double a, double b, double epsilon){
         x0 = x1;
         x1 = (a + b)/2;
 
-        if(funcaoB(x1) * funcaoB(a) < 0){
+        if(funcaoB(x1) == 0.0){
+            break;
+        }
+        else if(funcaoB(x1) * funcaoB(a) < 0){
             b = x1;
             passos++;
         }
@@ -101,7 +105,10 @@ double bissecao3(double a, double b, double epsilon){
         x0 = x1;
         x1 = (a + b)/2;
 
-        if(funcaoC(x1) * funcaoC(a) < 0){
+        if(funcaoC(x1) == 0.0){
+            break;
+        }
+        else if(funcaoC(x1) * funcaoC(a) < 0){
             b = x1;
             passos++;
         }
